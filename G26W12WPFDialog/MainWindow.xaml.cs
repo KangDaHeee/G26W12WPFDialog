@@ -8,7 +8,10 @@ namespace G26W12WPFDialog {
         }
 
         public void OnAdd(object sender, RoutedEventArgs e) {
-
+            GundamDlg dialog = new() { Owner = this };
+            if(dialog.ShowDialog() != true) {
+                return;
+            }
         }
     }
 }
