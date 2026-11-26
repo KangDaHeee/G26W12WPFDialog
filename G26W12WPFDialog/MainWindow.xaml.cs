@@ -13,23 +13,9 @@ namespace G26W12WPFDialog {
                 return;
             }
 
-            ResultText.Text += $"{dialog.Faction}의 {dialog.MSModel} {dialog.MSName}{
-                (HasJongsung(dialog.MSName) ? "이" : "가")
+            ResultText.Text += $"{dialog.Faction}의 {dialog.MSModel} {
+                dialog.MSName.WithSubject()
                 } 추가되었습니다.\n";
-        }
-
-        public static bool HasJongsung(string str) {
-            if(string.IsNullOrEmpty(str)) {
-                return false;
-            }
-
-            char last = str[^1];
-            
-            if(last < 0xAC00 || last > 0xD7A3) {
-                return false;
-            }
-
-            return (last - 44032) % 28 != 0;
         }
     }
 }
